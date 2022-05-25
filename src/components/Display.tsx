@@ -1,3 +1,3 @@
-export const Display = () => {
-  return <div>0</div>;
+export const Display = (props) => {
+  return <div>{props.state.current}</div>;
 };
