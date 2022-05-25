@@ -1,3 +1,3 @@
 export const calculate = () => {
-  return <div></div>;
+  return 0;
 };
