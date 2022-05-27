@@ -71,12 +71,29 @@ function handleOperatorButton(button: string, state: State): State {
   };
 }
 
+function isEquelButton(button: string) {
+  return button === "=";
+}
+
+function handleEquelButton(button: string, state: State): State {
+  const nextValue = operate(state);
+  return {
+    current: `${nextValue}`,
+    operand: nextValue,
+    operator: null,
+    isNextClear: true
+  };
+}
+
 export const calculate = (button: string, state: State): State => {
   if (isNumberButton(button)) {
     return handleNumberButton(button, state);
   }
   if (isOperatorButton(button)) {
     return handleOperatorButton(button, state);
+  }
+  if (isEquelButton(button)) {
+    return handleEquelButton(button, state);
   }
 };
 
