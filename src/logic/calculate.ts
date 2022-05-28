@@ -85,6 +85,18 @@ function handleEquelButton(button: string, state: State): State {
   };
 }
 
+function isAllClearButton(button: string) {
+  return button === "AC";
+}
+function handleAllClearButton(button: string, state: State): State {
+  return {
+    current: "0",
+    operand: 0,
+    operator: null,
+    isNextClear: true
+  };
+}
+
 export const calculate = (button: string, state: State): State => {
   if (isNumberButton(button)) {
     return handleNumberButton(button, state);
@@ -94,6 +106,9 @@ export const calculate = (button: string, state: State): State => {
   }
   if (isEquelButton(button)) {
     return handleEquelButton(button, state);
+  }
+  if (isAllClearButton(button)) {
+    return handleAllClearButton(button, state);
   }
 };
 
